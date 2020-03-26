@@ -26,12 +26,12 @@ services:
     restart: always
     env_file:
       - ./envs/dev.env
-    command: 'sh /scripts/run.sh'
+    command: 'sh /scripts/run_backend_cmds.sh'
       
   frontend:
     image: registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/frontend
     restart: always
-    command: 'sh /scripts/run.sh'
+    command: 'sh /scripts/run_frontend_cmds.sh'
     volumes:
       - frontend:/frontend/build
       - media-files:/media-files

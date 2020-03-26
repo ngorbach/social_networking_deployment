@@ -16,7 +16,7 @@ services:
       - "443:443" # https
     volumes:
       - frontend:/frontend
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/default_uncertified.conf:/etc/nginx/conf.d
       - static-files:/static-files
       - media-files:/media-files
       - ./certificates:/etc/letsencrypt/

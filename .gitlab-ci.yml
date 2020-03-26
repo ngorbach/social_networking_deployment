@@ -1,7 +1,6 @@
 stages:
   - pull_backend_dockerimage
   - pull_frontend_dockerimage
-  - build
   - deploy
 
 before_script:

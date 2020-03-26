@@ -1,5 +1,5 @@
 stages:
-  - pull
+  - pull-backend
   - build
   - lint
   - push
@@ -9,16 +9,26 @@ stages:
 before_script:
   - docker login -u ngorbach -p IctSiM12 registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
 
-pull:
+pull-backend-image:
   stage: pull
   tags:
   - digital-ocean
   script:
     - docker pull registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
     
-build:
-  stage: build
+pull-frontend-image:
+  stage: pull
   tags:
   - digital-ocean
   script:
-    - docker build --file=Dockerfile_backend --tag=registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest --cache-from="$CI_REGISTRY_IMAGE":latest .
+    - docker pull registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/frontend:latest
+    
+deploy:
+  stage: deploy
+  when: manual
+  tags:
+  - digital_ocean
+  script:
+    - docker-compose -f docker-compose.prod.yml pull
+    - docker-compose -f docker-compose.prod.yml down --remove-orphans
+    - docker-compose -f docker-compose.prod.yml up -d

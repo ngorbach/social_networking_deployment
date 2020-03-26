@@ -4,7 +4,7 @@ stages:
   - deploy
 
 pull_backend_dockerimage:
-  stage: pull
+  stage: pull_backend_dockerimage
   tags:
   - digital-ocean
   script:
@@ -12,7 +12,7 @@ pull_backend_dockerimage:
     - docker pull registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
     
 pull_frontend_dockerimage:
-  stage: pull
+  stage: pull_frontend_dockerimage
   tags:
   - digital-ocean
   script:

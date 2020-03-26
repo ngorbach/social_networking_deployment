@@ -1,0 +1,26 @@
+version:  '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./envs/dev.env
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  backend:
+    image: backend
+    restart: always
+    env_file:
+      - ./envs/dev.env
+    ports:
+      - "8000:8000"
+    command: 'python manage.py runserver 0.0.0.0:8000'
+    volumes:
+      - ./backend:/backend
+
+volumes:
+  postgres:
+  backend:

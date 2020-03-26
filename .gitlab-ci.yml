@@ -23,7 +23,7 @@ deploy:
   stage: deploy
   when: manual
   tags:
-  - digital_ocean
+  - digital-ocean
   script:
     - docker-compose -f docker-compose.prod.yml pull
     - docker-compose -f docker-compose.prod.yml down --remove-orphans

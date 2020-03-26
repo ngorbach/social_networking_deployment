@@ -1,19 +1,20 @@
 stages:
-  - pull-backend
+  - pull-backend-dockerimage
+  - pull-frontend-dockerimage
   - build
   - deploy
 
 before_script:
   - docker login -u ngorbach -p IctSiM12 registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
 
-pull-backend-image:
+pull-backend-dockerimage:
   stage: pull
   tags:
   - digital-ocean
   script:
     - docker pull registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
     
-pull-frontend-image:
+pull-frontend-dockerimage:
   stage: pull
   tags:
   - digital-ocean

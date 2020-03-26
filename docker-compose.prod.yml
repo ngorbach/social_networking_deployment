@@ -27,13 +27,11 @@ services:
     env_file:
       - ./envs/dev.env
     command: 'sh /scripts/backend.sh'
-    volumes:
-      - backend:/backend
       
   frontend:
     image: registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/frontend
     restart: always
-    command: 'sh /scripts/backend.sh'
+    command: 'sh /scripts/frontend.sh'
     volumes:
       - frontend:/frontend/build
       - media-files:/media-files
@@ -43,5 +41,4 @@ volumes:
   media-files:
   static-files:
   postgres:
-  backend:
   frontend:

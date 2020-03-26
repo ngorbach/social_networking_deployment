@@ -15,3 +15,10 @@ pull:
   - digital-ocean
   script:
     - docker pull registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
+    
+build:
+  stage: build
+  tags:
+  - digital-ocean
+  script:
+    - docker build --tag=registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest --cache-from="$CI_REGISTRY_IMAGE":latest .

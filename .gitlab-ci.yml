@@ -1,3 +1,8 @@
+include:
+  - project: 'internal_group/template_repo'
+    file: '/.gitlab-ci-template.yml
+
+
 stages:
   - pull
   - build
@@ -17,7 +22,6 @@ pull:
     - docker pull registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
     
 build:
-  include: https://gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend/blob/master/.gitlab-ci.yml
   stage: build
   tags:
   - digital-ocean

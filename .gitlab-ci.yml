@@ -1,6 +1,6 @@
 stages:
-  - pull-backend-dockerimage
-  - pull-frontend-dockerimage
+  - pull_backend_dockerimage
+  - pull_frontend_dockerimage
   - build
   - deploy
 

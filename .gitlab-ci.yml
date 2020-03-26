@@ -1,10 +1,7 @@
 stages:
   - pull-backend
   - build
-  - lint
-  - push
   - deploy
-  - cleanup
 
 before_script:
   - docker login -u ngorbach -p IctSiM12 registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest

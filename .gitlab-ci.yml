@@ -1,3 +1,5 @@
+include: https://gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend/blob/master/
+
 stages:
   - pull
   - build

@@ -21,4 +21,4 @@ build:
   tags:
   - digital-ocean
   script:
-    - docker build -f Dockerfile_backend --tag=registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest --cache-from="$CI_REGISTRY_IMAGE":latest .
+    - docker build --file=Dockerfile_backend --tag=registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest --cache-from="$CI_REGISTRY_IMAGE":latest .

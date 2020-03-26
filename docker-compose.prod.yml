@@ -22,11 +22,19 @@ services:
 #      - /etc/letsencrypt:/etc/letsencrypt
 
   backend:
-    image: registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-7/day-3
+    image: registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend
     restart: always
     env_file:
       - ./envs/dev.env
     command: 'sh /scripts/run.sh'
+    volumes:
+      - backend:/backend
+      - media-files:/media-files
+      - static-files:/static-files
+      
+  frontend:
+    image: registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/frontend
+    restart: always
     volumes:
       - frontend:/frontend/build
       - media-files:/media-files

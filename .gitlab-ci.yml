@@ -3,14 +3,12 @@ stages:
   - pull_frontend_dockerimage
   - deploy
 
-before_script:
-  - docker login -u ngorbach -p IctSiM12 registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
-
 pull_backend_dockerimage:
   stage: pull
   tags:
   - digital-ocean
   script:
+    - docker login -u ngorbach -p IctSiM12 registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
     - docker pull registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
     
 pull_frontend_dockerimage:
@@ -18,6 +16,7 @@ pull_frontend_dockerimage:
   tags:
   - digital-ocean
   script:
+    - docker login -u ngorbach -p IctSiM12 registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/frontend:latest
     - docker pull registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/frontend:latest
     
 deploy:

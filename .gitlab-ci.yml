@@ -7,7 +7,7 @@ stages:
   - cleanup
 
 before_script:
-  - docker login registry.gitlab.propulsion-home.ch
+  - docker login -u ngorbach -p IctSiM12 registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/backend:latest
 
 pull:
   stage: pull

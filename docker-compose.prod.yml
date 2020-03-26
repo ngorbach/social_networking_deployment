@@ -31,7 +31,7 @@ services:
   frontend:
     image: registry.gitlab.propulsion-home.ch/nico-stephan-gorbach/week-8/frontend
     restart: always
-    command: 'sh /scripts/run_frontend_cmds.sh'
+    command: 'rm -rf /frontend/build/* && cp -r /frontend_tmp/* /frontend'
     volumes:
       - frontend:/frontend/build
       - media-files:/media-files
